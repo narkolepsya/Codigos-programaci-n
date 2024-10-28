@@ -95,7 +95,7 @@ int main()
         else if (opcion == 7)
         {
             cout << "Se van a intercambiar la lista 1 con la lista 2 " <<endl;
-            lista.swap(lista2);
+            lista.swap(lista2); // map.swap(map)
             cout << "Lista de datos: " <<endl;
             if (lista.empty() && lista2.empty()) // pregunta si es true, o sea q la lista esta vacia
             {
