@@ -72,7 +72,7 @@ class Netflix
 };
 int main()
 {
-	Netflix * n = new Netflix;
+	Netflix * n = new Netflix();
 	while (true)
 	{
 		int opcion;
