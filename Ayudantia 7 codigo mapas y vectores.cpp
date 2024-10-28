@@ -19,6 +19,26 @@ class Netflix
 				cout << "Genero " << genero << " agregado." << endl;
 			}
 		}
+		void borrarTitulo(string genero, string titulo)
+		{
+		    if (catalogo.count(genero)) // Si existe el género
+            {
+                cout << "El genero es: " << genero << endl;
+			    vector<string>& titulos = catalogo[genero];
+			    for (int i = 0; i < titulos.size(); i++) // Recorrer los títulos
+                {
+                    if (titulos[i] == titulo) // Si se encuentra el título
+                    {
+                        titulos.erase(titulos.begin() + i); // Eliminar el título
+                        cout << "Titulo '" << titulo << "' HA SIDO ELIMINADO del genero '" << genero << "'." << endl;
+                    }
+                }
+            }
+			else // catalogo.count me da false? si me da false significa q NO existe el genero
+			{
+				cout << "El genero '" << genero << "' no esta registrado." << endl;
+			}
+		}
 		void agregarTitulo(string genero, string titulo)
 		{
 			if (catalogo.count(genero)) // catalogo.count me da true? si me da true significa q existe el genero
@@ -80,6 +100,7 @@ int main()
 	    cout << "2. Agregar titulo a genero " <<endl;
 	    cout << "3. mostrar Titulos Por Genero " <<endl;
 	    cout << "4. contar peliculas por genero" <<endl;
+	    cout << "5. eliminar titulo" << endl;
 	    cout << "Ingrese cualquier numero para salir" <<endl;
 	    cin >> opcion;
 	    if (opcion == 1)
@@ -111,6 +132,15 @@ int main()
 			cout << "Ingrese nombre de genero para contar cantidad de peliculas " <<endl;
 			cin >> g;
 			cout << "El numero de peliculas es " << n -> contarpeliculasporgenero(g) << endl;
+		}
+		else if (opcion == 5)
+		{
+		    string g, t;
+		    cout << "Ingrese nombre de genero a buscar " <<endl;
+		    cin >> g;
+			cout << "Ingrese nombre de titulo a borrar " <<endl;
+			cin >> t;
+			n -> borrarTitulo(g, t);
 		}
 		else
 		{
